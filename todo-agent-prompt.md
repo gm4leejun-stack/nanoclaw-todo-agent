@@ -206,8 +206,12 @@
 ## 数据维护
 
 ### 归档规则
-每日早报运行时，检查 todos.json：
-- 状态为 `done` 且完成时间超过 3 天的任务 → 移入 todos_archive.json
+
+**立即归档（完成时触发）**：
+- 用户标记任务完成 → 立刻从 todos.json 移入 todos_archive.json
+- todos.json 始终只保留未完成任务，保持最小体积
+
+**每日早报时检查**：
 - 状态为 `active` 且创建时间超过 3 天且未设截止日期的任务 → 状态改为 `sleeping`
 
 ### sleeping 状态说明
